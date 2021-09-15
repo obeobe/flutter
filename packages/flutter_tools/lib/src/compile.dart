@@ -699,6 +699,9 @@ class DefaultResidentCompiler implements ResidentCompiler {
       Artifact.frontendServerSnapshotForEngineDartSdk
     );
     final List<String> command = <String>[
+      'node',
+      //'/home/user/per/tools/flutter/flutter-engine-proxy/flutter-engine-proxy.js',
+      '/home/user/per/tools/flutter/flutter-tools-proxy/flutter-tools-proxy.js',
       _artifacts.getHostArtifact(HostArtifact.engineDartBinary).path,
       '--disable-dart-dev',
       frontendServer,
@@ -766,6 +769,8 @@ class DefaultResidentCompiler implements ResidentCompiler {
             _stdoutHandler.compilerOutput?.complete(null);
             throwToolExit('the Dart compiler exited unexpectedly.');
           }
+
+          int a = 2;
         });
 
     _server?.stderr

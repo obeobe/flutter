@@ -5,6 +5,7 @@
 import 'dart:async';
 import 'dart:collection';
 
+import 'package:flutter_tools/src/artifacts.dart';
 import 'package:meta/meta.dart';
 
 /// Generates an [AppContext] value.
@@ -85,6 +86,9 @@ class AppContext {
   /// If the generator ends up triggering a reentrant call, it signals a
   /// dependency cycle, and a [ContextDependencyCycleException] will be thrown.
   dynamic _generateIfNecessary(Type type, Map<Type, Generator> generators) {
+    if (type == Artifacts) {
+      int a = 2;
+    }
     if (!generators.containsKey(type)) {
       return null;
     }
